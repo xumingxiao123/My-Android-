@@ -187,8 +187,6 @@ public class ChooseAreaFragment extends Fragment {
     /*** 根据传入的地址和类型从服务器上查询省市县数据 */
     /*根据传入的地址和类型从服务器上获取数据
      * */
-    /*根据传入的地址和类型从服务器上获取数据
-     * */
     private void queryFromServer(String address,final String type){
         //未查出之前显示出进度条框
         showProgressDialog();
@@ -200,6 +198,7 @@ public class ChooseAreaFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //关闭进度对话框
                         closeProgressDialog();
                         Toast.makeText(getContext(),"加载失败",Toast.LENGTH_SHORT).show();
                     }

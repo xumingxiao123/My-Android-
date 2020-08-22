@@ -1,8 +1,10 @@
-package com.example.sunnywheather;
+package com.example.sunnyweather.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.sunnywheather.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,8 +1,7 @@
-package com.example.sunnywheather.ui;
+package com.example.sunnyweather.activity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,20 +15,18 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.sunnyweather.util.HttpUtil;
 import com.example.sunnywheather.R;
-import com.example.sunnywheather.db.City;
-import com.example.sunnywheather.db.County;
-import com.example.sunnywheather.db.Province;
-import com.example.sunnywheather.util.HttpUtil;
-import com.example.sunnywheather.util.Utility;
+import com.example.sunnyweather.db.City;
+import com.example.sunnyweather.db.County;
+import com.example.sunnyweather.db.Province;
+import com.example.sunnyweather.util.Utility;
 
 import org.litepal.LitePal;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.security.auth.callback.Callback;
 
 import okhttp3.Response;
 // 新建一个ChooseAreaFragment用于展示查询界面和实现基本查询功能
@@ -189,12 +186,15 @@ public class ChooseAreaFragment extends Fragment {
     /*** 根据传入的地址和类型从服务器上查询省市县数据 */
     /*根据传入的地址和类型从服务器上获取数据
      * */
+    /*根据传入的地址和类型从服务器上获取数据
+     * */
     private void queryFromServer(String address,final String type){
         //未查出之前显示出进度条框
         showProgressDialog();
-        HttpUtil.sendOkHttpRequest(address, new Callback() {
+        //Log.d(TAG,"发送之前");
+        HttpUtil.sendOkHttpRequest(address, new okhttp3.Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(okhttp3.Call call, IOException e) {
                 //通过runOnUiThread回到主线程处理逻辑
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -203,11 +203,9 @@ public class ChooseAreaFragment extends Fragment {
                         Toast.makeText(getContext(),"加载失败",Toast.LENGTH_SHORT).show();
                     }
                 });
-
             }
-
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(okhttp3.Call call, Response response) throws IOException {
                 String responseText = response.body().string();
                 boolean result = false;
                 if(type.equals("province")){
@@ -237,7 +235,6 @@ public class ChooseAreaFragment extends Fragment {
             }
         });
     }
-
     /*** 显示进度对话框 */
     private void showProgressDialog() {
         if (progressDialog == null) {

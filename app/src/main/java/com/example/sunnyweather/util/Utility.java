@@ -1,11 +1,11 @@
-package com.example.sunnywheather.util;
+package com.example.sunnyweather.util;
 
 
 import android.text.TextUtils;
 
-import com.example.sunnywheather.db.City;
-import com.example.sunnywheather.db.County;
-import com.example.sunnywheather.db.Province;
+import com.example.sunnyweather.db.County;
+import com.example.sunnyweather.db.City;
+import com.example.sunnyweather.db.Province;
 
 import org.json.JSONArray;
 import org.json.JSONException;

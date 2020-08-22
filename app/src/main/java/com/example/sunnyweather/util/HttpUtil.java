@@ -1,4 +1,4 @@
-package com.example.sunnywheather.util;
+package com.example.sunnyweather.util;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

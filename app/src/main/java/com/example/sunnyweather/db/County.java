@@ -1,4 +1,4 @@
-package com.example.sunnywheather.db;
+package com.example.sunnyweather.db;
 import org.litepal.crud.LitePalSupport;
 /**
  * Created by StarDream on 2020/8/21.

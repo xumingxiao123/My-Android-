@@ -1,4 +1,4 @@
-package com.example.sunnywheather.db;
+package com.example.sunnyweather.db;
 import org.litepal.crud.LitePalSupport;
 
 /**

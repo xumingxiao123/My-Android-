@@ -1,6 +1,7 @@
 package com.example.sunnyweather.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -250,5 +251,47 @@ public class ChooseAreaFragment extends Fragment {
         if (progressDialog != null) {
             progressDialog.dismiss();
         }
+    }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        //对列表设置监听事件
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(currentLevel == LEVEL_PROVINCE){
+                    //记住选中的省份
+                    selectedProvince = provinceList.get(position);
+                    //显示出省份对应下city的界面
+                    queryCities();
+                }else if(currentLevel == LEVEL_CITY){
+                    //记住选中的City
+                    selectedCity = cityList.get(position);
+                    //切换到相应的county界面
+                    queryCounties();
+                }else if(currentLevel == LEVEL_COUNTY){
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(),WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
+
+                }
+            }
+        });
+        //为返回按钮注册监听事件
+        backButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                //若在county切换到City
+                if(currentLevel == LEVEL_COUNTY){
+                    queryCities();
+                }else if(currentLevel == LEVEL_CITY){
+                    //若在City切换到province
+                    queryProvinces();
+                }
+            }
+        });
+        //初始状态下显示province
+        queryProvinces();
     }
 }

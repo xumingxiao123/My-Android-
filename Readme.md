@@ -1075,8 +1075,6 @@ public class Weather {
 
 #### 将以上布局文件引入activity_weather.xml中
 
-
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -1113,8 +1111,6 @@ public class Weather {
 
 #### 解析天气JSON数据
 
-
-
 ```java
     //将返回的JSON数据解析成Weather实体类
     public static Weather handleWeatherResponse(String response){
@@ -1135,8 +1131,6 @@ public class Weather {
 #### 编写WeatherActivity()中的代码
 
 ##### 定义控件的变量
-
-
 
 ```java
 public class WeatherActivity extends AppCompatActivity {
@@ -1159,8 +1153,6 @@ public class WeatherActivity extends AppCompatActivity {
 
 获取控件的实例，从本地缓存读取天气数据，若没有，则会从Intent中读出天气Id，然后调用requestWeahter()方法请求服务器上的数据。
  **注意：**这里缓存中保存数据采用SharedPreferences的方式，具体用法见 [SharedPreferences存储](https://www.jianshu.com/p/65b6369d020c)
-
-
 
 ```tsx
 @Override
@@ -1195,8 +1187,6 @@ public class WeatherActivity extends AppCompatActivity {
 ```
 
 #### 向服务器请求天气信息
-
-
 
 ```java
    /*
@@ -1242,8 +1232,6 @@ requestWeather()方法先使用传入的天气id和APIKEY拼装出接口地址�
 
 #### showWeatherInfo()显示天气信息
 
-
-
 ```tsx
 /*处理冰战士Weather实体类中的数据
     * */
@@ -1286,8 +1274,6 @@ requestWeather()方法先使用传入的天气id和APIKEY拼装出接口地址�
 从Weather对象获取数据，然后显示到相应的空间上。
 
 #### 从县列表跳转到天气界面
-
-
 
 ```dart
 public class ChooseAreaFragment extends Fragment {
@@ -1530,8 +1516,6 @@ loadBingPic();
 
 #### 修改activity_weather.xml
 
-
-
 ```jsx
 <!--SwipeRefreshLayout具有下拉刷新功能-->
     <android.support.v4.widget.SwipeRefreshLayout
@@ -1548,15 +1532,11 @@ loadBingPic();
 
 ##### 定义刷新控件
 
-
-
 ```cpp
 private SwipeRefreshLayout swipeRefresh;
 ```
 
 ##### 加载控件，设置下拉进度条颜色
-
-
 
 ```dart
 swipeRefresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
@@ -1566,8 +1546,6 @@ swipeRefresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
 ```
 
 ##### 实现更新
-
-
 
 ```csharp
     if(weatherString != null){
@@ -1590,8 +1568,6 @@ swipeRefresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
 ```
 
 ##### 隐藏刷新进度条
-
-
 
 ```java
  /*
@@ -1641,8 +1617,6 @@ swipeRefresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
 ## 切换城市
 
 #### 在title.xml标题栏设置按钮
-
-
 
 ```objectivec
 <Button
@@ -1996,10 +1970,6 @@ adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,da
 
 # 界面展示
 
-![img](https:////upload-images.jianshu.io/upload_images/13122291-bd05e2306d3cddf5.png?imageMogr2/auto-orient/strip|imageView2/2/w/205/format/webp)
-
-Icon
-
 
 
 ![img](https:////upload-images.jianshu.io/upload_images/13122291-58a5d63b107862c0.png?imageMogr2/auto-orient/strip|imageView2/2/w/437/format/webp)
@@ -2015,14 +1985,3 @@ Icon
 
 
 ![img](https:////upload-images.jianshu.io/upload_images/13122291-a5ac742342e723b3.png?imageMogr2/auto-orient/strip|imageView2/2/w/435/format/webp)
-
-市级—临夏
-
-最关键的界面图片总是上传失败，不知道是什么原因。。。不传了，真是想吐槽这个上传图片功能
-
-
-
-作者：Aptitude
-链接：https://www.jianshu.com/p/233d220e80b0
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
